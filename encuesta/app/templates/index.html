@@ -15,6 +15,7 @@
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script crossorigin="anonymous" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -153,13 +154,16 @@
                             <label>6. Edad</label>
                             <div class="row">
                                 <div class="col-sm">
-                                    <input class="form-control" id="ageYears" name="ageYears" type="text" required>
+                                    <input class="form-control" id="ageYears" name="ageYears" type="text" required readonly>
+                                    años
                                 </div>
                                 <div class="col-sm">
-                                    <input class="form-control" id="ageMonths" name="ageMonths" type="text" required>
+                                    <input class="form-control" id="ageMonths" name="ageMonths" type="text" required readonly>
+                                    meses
                                 </div>
                                 <div class="col-sm">
-                                    <input class="form-control" id="ageDays" name="ageDays" type="text" required>
+                                    <input class="form-control" id="ageDays" name="ageDays" type="text" required readonly>
+                                    dias
                                 </div>
                             </div>
                         </div>
@@ -257,6 +261,20 @@ $( "input" ).on(
         console.log("An input value has changed! ", eventObject.data.foo);
     }
 );
+$( "#birthDate" ).focusout(function() {
+    var bd = document.getElementById("birthDate").value;
+    if (bd != '') {
+        $.getJSON("http://127.0.0.1:5000/api/"+bd).done(function(data){
+          document.getElementById('ageYears').value = data["years"];
+          document.getElementById('ageMonths').value = data["months"];
+          document.getElementById('ageDays').value = data["days"];
+        });
+    } else {
+          document.getElementById('ageYears').value = '';
+          document.getElementById('ageMonths').value = '';
+          document.getElementById('ageDays').value = '';
+    }
+});
 </script>
 </body>
 

@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import config
+from flask_restful import Api
 
 db = SQLAlchemy()
 
@@ -12,7 +13,13 @@ def create_app(config_name):
 
     db.init_app(app)
 
+    Api(app, catch_all_404s=True)
+    app.url_map.strict_slashes = False
+
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
+    from .services import services as services_blueprint
+    app.register_blueprint(services_blueprint)
 
     return app
