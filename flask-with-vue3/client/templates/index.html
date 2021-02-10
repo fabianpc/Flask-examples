@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Mastery</title>
+    <link rel="stylesheet" href="{{ url_for('client.static', filename='styles.css') }}"/>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="nav-bar"></div>
+        <div class="cart">Cart( [[ cart.length ]] )</div>
+        <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
+    </div>
+
+    <script src="{{ url_for('client.static', filename='index.js') }}"></script>
+    <script src="{{ url_for('client.static', filename='components/ProductDisplay.js') }}"></script>
+    <script src="{{ url_for('client.static', filename='components/ReviewForm.js') }}"></script>
+    <script src="{{ url_for('client.static', filename='components/ReviewList.js') }}"></script>
+    <!-- Mount App -->
+    <script>
+          const mountedApp = app.mount('#app')
+    </script>
+</body>
+</html>
