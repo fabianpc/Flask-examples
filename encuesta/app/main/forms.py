@@ -1,14 +1,19 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, IntegerField
+from wtforms import StringField, DateField, IntegerField, SelectField
 from wtforms.validators import DataRequired
 
 
 class SurveyForm(FlaskForm):
     unitName = StringField()
     researchDate = DateField()
-    unitProvince = StringField(validators=[DataRequired()])
-    unitCanton = StringField()
-    unitParish = StringField()
+    #unitProvinceCode = StringField(validators=[DataRequired()])
+    unitProvinceCode = SelectField('Elija la provincia', [DataRequired()],
+                                   choices=[
+                                       ('01','Azuay'),
+                                       ('02','Pichincha')
+                                   ])
+    unitCantonCode = StringField()
+    unitParishCode = StringField()
     lastName = StringField()
     surName = StringField()
     firstName = StringField()

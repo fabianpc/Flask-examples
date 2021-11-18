@@ -13,7 +13,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'postgres://developer:secreto@localhost:5432/encuesta'
+    SQLALCHEMY_DATABASE_URI = 'postgres://asayiiizmnigtd:ddd64f69c6d677d60d5441d5960f065a59687203848bc9fa4c7712ac2b57149d@ec2-54-159-107-189.compute-1.amazonaws.com:5432/dbm7dmjkhmkrgp'
 
 
 class TestingConfig(Config):

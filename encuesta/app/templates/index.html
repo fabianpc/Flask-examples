@@ -57,21 +57,21 @@
                         <div class="form-group col-md-4">
                             <label for="unitProvince">Provincia</label>
                             <!--input class="form-control" id="unitProvince" name="unitProvince" type="text"-->
-                            {{ form.unitProvince(class="form-control") }}
+                            {{ form.unitProvinceCode(class="form-control") }}
                             <div class="invalid-feedback">
                                 Dato obligatorio!
                             </div>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="unitCanton">Cantón</label>
-                            <input class="form-control" id="unitCanton" name="unitCanton" type="text" required>
+                            <input class="form-control" id="unitCantonCode" name="unitCantonCode" type="text" required>
                             <div class="invalid-feedback">
                                 Dato obligatorio!
                             </div>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="unitParish">Parroquia</label>
-                            <input class="form-control" id="unitParish" name="unitParish" type="text" required>
+                            <input class="form-control" id="unitParishCode" name="unitParishCode" type="text" required>
                             <div class="invalid-feedback">
                                 Dato obligatorio!
                             </div>
@@ -264,7 +264,7 @@ $( "input" ).on(
 $( "#birthDate" ).focusout(function() {
     var bd = document.getElementById("birthDate").value;
     if (bd != '') {
-        $.getJSON("http://127.0.0.1:5000/api/"+bd).done(function(data){
+        $.getJSON(window.location.href+"/api/"+bd).done(function(data){
           document.getElementById('ageYears').value = data["years"];
           document.getElementById('ageMonths').value = data["months"];
           document.getElementById('ageDays').value = data["days"];

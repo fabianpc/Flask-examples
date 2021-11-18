@@ -2,6 +2,8 @@ from flask import render_template, request
 from . import main
 from .forms import SurveyForm
 from ..models.survey import Survey
+from ..models.security import User
+from ..models.location import Location
 from app import db
 import sys
 
@@ -17,9 +19,9 @@ def survey_save():
     survey = Survey()
     survey.unitName = request.form["unitName"]
     survey.researchDate = request.form["researchDate"]
-    survey.unitProvince = request.form["unitProvince"]
-    survey.unitCanton = request.form["unitCanton"]
-    survey.unitParish = request.form["unitParish"]
+    survey.unitProvinceCode = request.form["unitProvinceCode"]
+    survey.unitCantonCode = request.form["unitCantonCode"]
+    survey.unitParishCode = request.form["unitParishCode"]
     survey.lastName = request.form["lastName"]
     survey.surName = request.form["surName"]
     survey.firstName = request.form["firstName"]

@@ -5,9 +5,9 @@ class Survey(db.Model):
     __tablename__ = 'survey'
     unitName = db.Column(db.String(100), primary_key=True)
     researchDate = db.Column(db.Date(), primary_key=True)
-    unitProvince = db.Column(db.String(100))
-    unitCanton = db.Column(db.String(100))
-    unitParish = db.Column(db.String(100))
+    unitProvinceCode = db.Column(db.String(6))
+    unitCantonCode = db.Column(db.String(6))
+    unitParishCode = db.Column(db.String(6))
     lastName = db.Column(db.String(100))
     surName = db.Column(db.String(100))
     firstName = db.Column(db.String(100))
