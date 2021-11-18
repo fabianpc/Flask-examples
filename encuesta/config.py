@@ -13,16 +13,16 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'postgres://asayiiizmnigtd:ddd64f69c6d677d60d5441d5960f065a59687203848bc9fa4c7712ac2b57149d@ec2-54-159-107-189.compute-1.amazonaws.com:5432/dbm7dmjkhmkrgp'
+    SQLALCHEMY_DATABASE_URI = 'postgres://developer:@localhost:5432/encuesta'
 
 
 class TestingConfig(Config):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'postgres://tester:secreto@localhost:5432/encuesta'
+    SQLALCHEMY_DATABASE_URI = 'postgres://tester:@localhost:5432/encuesta'
 
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgres://producer:secreto@localhost:5432/encuesta'
+    SQLALCHEMY_DATABASE_URI = 'postgres://producer:@localhost:5432/encuesta'
 
 
 config = {
